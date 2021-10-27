@@ -1,0 +1,13 @@
+if tweets 
+   each tweet in tweets
+      div(class="card tweet-element mb-4")
+         div(class="card-body d-flex flex-column")
+            div(class="d-flex flex-row justify-content-center align-items-center")
+               img(style="width: 30px; max-height: 30px" class="pe-2" src=tweet.author.avatar)
+               span(class="flex-fill")= tweet.author.username
+               span(class="small me-3 created-at")= tweet.createdAt.toLocaleString()
+               if editable && tweet.author._id.toString() == currentUser._id.toString()
+                  div(class="d-flex flex-row justify-content-center align-items-center")
+                     a(class="fas fa-edit text-success me-2" href="/tweets/edit/" + tweet.id)
+                     i(class="fas fa-minus-circle text-danger" style="cursor: pointer" tweetId=tweet._id)
+            div(class="mt-3")= tweet.content

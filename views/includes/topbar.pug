@@ -1,0 +1,25 @@
+if user && currentUser._id === user._id
+   script(src="js/searchbar.js")
+else 
+   script(src="../js/searchbar.js")
+nav(class="navbar navbar-expand-md navbar-light bg-white px-3")
+   a(class="navbar-brand" href="/tweets")
+      img(width="30" height="30" src="https://cdn.svgporn.com/logos/twitter.svg" alt="twitter logo")
+   button(class="navbar-toggler")
+      span(class="navbar-toggler-icon")
+   div(class="collapse navbar-collapse")
+      if isAuthenticated
+         form
+            input(type="text" class="form-control me-2" placeholder="Rechercher..." id="seach-input")
+            div(id="search-menu-container")
+         ul(class="navbar-nav ms-auto")
+            li(class="nav-item")
+               a(class="btn btn-primary btn-tweet me-2" href="/tweets/new") Tweet
+            li(class="nav-item")
+               a(class="nav-link" href="/auth/logout") Déconnexion
+      else
+         ul(class="navbar-nav ms-auto")
+            li(class="nav-item")
+               a(class="nav-link" href="/auth/signin/form") Connexion
+            li(class="nav-item")
+               a(class="nav-link" href="/users/signup/form") Inscription

@@ -1,0 +1,8 @@
+div(class="search-menu d-flex flex-column justify-content-center")
+   if users && users.length 
+      each user in users
+         a(class="d-flex flex-row align-items-center p-2" href="/users/" + user.username)
+            img(style="width: 40px; max-height: 40px" class="me-2 p-1 rounded" src=user.avatar)
+            span= user.username
+   else 
+      span(class="text-center py-2") Aucun résultat

@@ -1,0 +1,5 @@
+# commande cron
+# editer => crontab -e
+### Vérif si certificat a besoin d'être renew (toutes les 12h)
+0 0 * * * /usr/bin/certbot renew --webroot -w /root/twitter --deploy-hook "pm2 reload all"
+MAILTO=florent-leger@gmx.com

@@ -1,0 +1,18 @@
+extend ../layout.pug 
+
+block content 
+   div(class="d-flex flex-row content mx-auto mt-2")
+      div(class="profile-container bg-white me-4 d-flex flex-column")
+      //- include ../includes/profile 
+      div(class="flex-fill") 
+         form(class="card" method="post" action= tweet._id ? "/tweets/update/" + tweet._id : "/tweets")
+            div(class="card-header") Ecrire un tweet 
+            div(class="card-body")
+               div(class="form-group")
+                  textarea(name="content" class="form-control" placeholder="What is happening ?")= tweet.content
+               if errors 
+                  ul(class="my-2")
+                     each error in errors 
+                        li(class="text-danger")= error 
+               div(class="w-100 mt-2")
+                  input(type="submit" value="Envoyer" class="btn btn-primary d-block ms-auto")
